@@ -56,6 +56,15 @@ function App() {
             }
           />
           <Route path="/login" element={<Login />} />
+          <Route
+            path="/payment"
+            element={
+              <div>
+                <Header />
+                <h1>hello i am payement</h1>
+              </div>
+            }
+          />
         </Routes>
       </div>
     </Router>
