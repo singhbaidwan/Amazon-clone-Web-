@@ -1,17 +1,37 @@
 import React, { useState } from "react";
 import "./Login.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { auth } from "./firebase";
 
 function Login() {
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   function signIn(event) {
     event.preventDefault();
+    auth
+      .signInWithEmailAndPassword(email, password)
+      .then((auth) => {
+        navigate("/");
+      })
+      .catch((error) => {
+        alert(error.message);
+      });
   }
 
   function register(event) {
     event.preventDefault();
+    auth
+      .createUserWithEmailAndPassword(email, password)
+      .then((auth) => {
+        //successfully creater user with email and password
+        console.log(auth);
+        if (auth) {
+          navigate("/");
+        }
+      })
+      .catch((error) => alert(error.message));
   }
 
   return (
