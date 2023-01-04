@@ -7,6 +7,7 @@ import Checkout from "./Checkout";
 import Login from "./Login";
 import { auth } from "./firebase";
 import { useStateValue } from "./StateProvider";
+import Payment from "./Payment";
 
 function App() {
   const [{}, dispatch] = useStateValue();
@@ -61,7 +62,7 @@ function App() {
             element={
               <div>
                 <Header />
-                <h1>hello i am payement</h1>
+                <Payment />
               </div>
             }
           />
