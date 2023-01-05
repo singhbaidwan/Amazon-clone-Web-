@@ -66,7 +66,7 @@ function Payment() {
         dispatch({
           type: "EMPTY_BASKET",
         });
-        navigate("/", { replace: true });
+        navigate("/orders", { replace: true });
       });
   };
 
